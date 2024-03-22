@@ -1,0 +1,49 @@
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .post {
+    width: 900px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .post-header {
+    /* Styles pour l'en-tête du post si nécessaire */
+  }
+  
+  .post-content {
+    /* Styles pour le contenu du post */
+  }
+  
+  .post-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .post-footer button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .post-footer button:nth-child(1) {
+    background-color: #3b5998; /* Bleu Facebook */
+    color: #fff;
+  }
+  
+  .post-footer button:nth-child(2) {
+    background-color: #ccc;
+    color: #000;
+  }
+  
+  .post-footer button:hover {
+    opacity: 0.8;
+  }
+  
