@@ -9,7 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GroupChatComponent } from './group-chat/group-chat.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { UploadPostComponent } from './upload-post/upload-post.component';
@@ -17,6 +17,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatOptionModule } from '@angular/material/core';
 import { PostsComponent } from './posts/posts.component';
 import { CommentsComponent } from './comments/comments.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { LightboxModule } from 'ngx-lightbox';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -26,20 +30,25 @@ import { CommentsComponent } from './comments/comments.component';
     HomeComponent,
     UploadPostComponent,
     PostsComponent,
-    CommentsComponent
+    CommentsComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
     MatIconModule,
+    LightboxModule,
+    MatSnackBarModule,
+    ReactiveFormsModule,
     MatButtonModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     NgxFileDropModule,
     FlexLayoutModule,
-    MatOptionModule
+    MatOptionModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,6 +13,6 @@ public class Comment {
     @Id
     private String id;
     private String text;
-    private String authorId;
+    private String authorId= "authorId";
     private Integer likeCount;
 }

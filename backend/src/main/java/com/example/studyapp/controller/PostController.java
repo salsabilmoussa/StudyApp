@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.studyapp.dto.CommentDto;
 import com.example.studyapp.dto.PostDto;
 import com.example.studyapp.model.Post;
 import com.example.studyapp.service.PostService;
@@ -18,6 +19,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,7 +33,7 @@ public class PostController {
 
     private final PostService postService;
 
-     @GetMapping
+    @GetMapping
     public List<Post> getAllPosts() {
         return postService.getAllPosts();
     }
@@ -48,5 +50,19 @@ public class PostController {
     public PostDto editPostMetadata(@RequestBody PostDto postDto){
         return postService.editPost(postDto);
     }
+
+    @PostMapping("/{postId}/comment")
+    @ResponseStatus(HttpStatus.OK)
+    public void addComment(@PathVariable String postId, @RequestBody CommentDto commentDto){
+        postService.addComment(postId, commentDto);
+    }
+
+    @GetMapping("/{postId}/comment")
+    @ResponseStatus(HttpStatus.OK)
+    public List<CommentDto> getAllComments(@PathVariable String postId){
+        return postService.getAllComments(postId);
+    }
+    
+    
     
 }

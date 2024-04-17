@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { PostService } from '../post.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-upload-post',
@@ -18,7 +19,7 @@ export class UploadPostComponent {
   showDragAndDropText: boolean = true;
 
 
-  constructor(private postService: PostService){
+  constructor(private postService: PostService, private matSnackBar: MatSnackBar){
 
   }
 
@@ -62,8 +63,8 @@ export class UploadPostComponent {
       console.log(this.fileEntry);
 
       this.fileEntry.file(file => this.postService.uploadPost(texteDuPost ,file).subscribe((data) => {
-        console.log("post uploaded successfully");
-        window.location.reload();;
+        this.matSnackBar.open("Post Uploaded Successfully", "OK");
+        window.location.reload();
       }))
     }
   }

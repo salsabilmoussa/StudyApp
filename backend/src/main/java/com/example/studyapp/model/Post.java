@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @Document(value = "Post")
 @Data
@@ -20,8 +21,12 @@ public class Post {
     private String description;
     private String userId;
     private Integer likes;
-    private List<Comment> commentList;
+    private List<Comment> commentList = new CopyOnWriteArrayList<>();
     private String documentUrl;
+
+    public void addComment(Comment comment) {
+        commentList.add(comment);
+    }
 
     
     

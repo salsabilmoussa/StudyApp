@@ -1,5 +1,5 @@
 <div class="center">
-    <textarea *ngIf="showTextField" [(ngModel)]="postText" placeholder="Quoi de neuf ?"
+    <textarea *ngIf="showTextField" [(ngModel)]="postText" placeholder="What's new ?"
         (click)="showUploadComponent = true"></textarea>
     <ngx-file-drop *ngIf="showUploadComponent" dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
         (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">

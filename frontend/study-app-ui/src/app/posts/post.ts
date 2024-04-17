@@ -3,5 +3,6 @@ export interface Post {
     description: string;
     likes: number;
     documentUrl: string;
+    isMenuHidden: boolean;
   }
   

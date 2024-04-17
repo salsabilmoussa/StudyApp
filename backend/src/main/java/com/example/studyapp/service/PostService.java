@@ -7,8 +7,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import com.example.studyapp.dto.CommentDto;
 import com.example.studyapp.dto.PostDto;
 import com.example.studyapp.dto.UploadPostResponse;
+import com.example.studyapp.model.Comment;
 import com.example.studyapp.model.Post;
 import com.example.studyapp.repository.PostRepository;
 
@@ -82,5 +84,27 @@ public class PostService {
     Post getPostById(String postId){
         return postRepository.findById(postId)
         .orElseThrow(() -> new IllegalArgumentException("cannot find post by id= " + postId));
+    }
+    public void addComment(String postId, CommentDto commentDto) {
+      Post post = getPostById(postId);
+      Comment comment= new Comment();
+      comment.setText(commentDto.getCommentText());
+      comment.setAuthorId(commentDto.getAuthorId());
+      post.addComment(comment);
+
+      postRepository.save(post);
+    }
+
+    public List<CommentDto> getAllComments(String postId) {
+    Post post= getPostById(postId);
+    List<Comment> commentList = post.getCommentList();
+    return commentList.stream().map(this::mapToCommentDto).toList();
+    }
+
+    private CommentDto mapToCommentDto(Comment comment){
+        CommentDto commentDto = new CommentDto();
+        commentDto.setAuthorId(comment.getAuthorId());
+        commentDto.setCommentText(comment.getText());
+        return commentDto;
     }
 }

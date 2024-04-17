@@ -7,7 +7,7 @@
         </path>
     </svg>
     <div class="centered-content">
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0,0,256,256"
+        <svg   (click)="redirectToHomePage()" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" cursor="pointer" viewBox="0,0,256,256"
             style="fill:#228BE6;">
             <g fill="#228be6" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                 stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
@@ -22,7 +22,7 @@
     <img
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACsElEQVR4nO1ZO2sUURQeFQsLBV+FmuzuPbPro1JIlU40hZ11AtoqVkqsTHw0avac2UAaQQV/QFTQwjcWioWCoKay8ZHdOWcTlWgXwZWRM1kMMwzr7INk1fvBaWbunPN99843xXyOY2Fh0RKAJDDEP4BkzpBUgOQtoDwEkiumyKdc5IP5sUqP0yG4nt+rPQ3KCKBcBZJHOrM+e67OJWhJSKpCngHk64ByJENVk7a/rgWSo0B8wyDPpp3ntCokR5LNor/Hpepe8HhQd8ygXAOSN4BcSxD2HJCP9xant8Z7FkrlbYbkBBC/SHiuBiivtXd4Kh4P6sxcqbJbObQtpNGaHcXPa8Hz9wPKaUC5b1C+L5Ljn3rNRTmgBSQPwmv1+7rWEN8DklHtob2cNvlEFrZzlPmJL+sAecgg3wSS+YR+8+E95CFd20xvSMuvY+9kHTsv+BsNyfDvEyAZ7imVN7TaD5ZLSLxvp/qAFdIm7InEYF8tsGaPwnokBusRsB6JwnokBusRsB6JwnokBusRsB6JwnokBusRsB6JwnokBusRsB7pUo8A8kdAnjIkz4B4EpA9Q3LMRb+/p1Rek5bAn9ZpLxf9fu2tMzRzCWciT4Uc2hbSoOop0itNmHIkh/THdVoh2z3e5KIcDtMpzUXqiRQ0WR0RknB6NUB+on/eM+OftsSFaPiTQzkJJE8TQyLqFiGx0zIktxZFyu1Wdx2WU8hSlfPPCgkRBCsyF6fX58/L5sL4DGTHZJdBf0BNGQaUxJcM8uNmUthmyyDP6oyFWTKyMNsfUC7KSbkpR+XqdAL61QmDUJJRg3wXiL81TRzlqyG+EwaiVN2X9NVbekwGq1xP+gzxOYPyssGOvzMoE7rLfZeD1U63A4qVApCcAeIPgPxeI2y3VM47fy3OBivDsvjP8AsxK11YozHfqgAAAABJRU5ErkJggg==">
     <span class="example-spacer"></span>
-    <button mat-raised-button color="primary" style="background-color: #1877F2;margin-right: 70px;">Mode Révision</button>
+    <button mat-raised-button color="primary" style="background-color: #1877F2;margin-right: 70px;" (click)="redirectToTimerPage()" >  {{ isRevisionModeActivated ? 'revision mode activated' : 'revision mode' }}</button>
     <button mat-icon-button class="example-icon" style="font-size: 24px;">
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50"
             style="fill:#000000;">
