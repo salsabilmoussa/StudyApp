@@ -11,6 +11,8 @@ export class RevisionService {
 
   activateRevisionMode() {
     this.isRevisionModeActivated = true;
+    console.log(this.isRevisionModeActivated);
+
   }
 
   deactivateRevisionMode() {

@@ -24,6 +24,7 @@ export class TimerComponent implements OnInit {
     this.startTimer();
   }
 
+
   startTimer() {
     this.interval = setInterval(() => {
       if (this.seconds === 0) {
@@ -120,8 +121,10 @@ export class TimerComponent implements OnInit {
   // }
 
   exitRevisionMode() {
-    this.revisionService.deactivateRevisionMode();
-    window.close();
+      // Fermer le deuxième onglet (/timer)
+      window.close();
+      // Recharger le premier onglet (/)
+      window.opener.location.reload();
   }
   
 
