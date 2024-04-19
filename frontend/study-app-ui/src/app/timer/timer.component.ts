@@ -1,6 +1,7 @@
 import { Component, Renderer2, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { RevisionService } from '../revision.service';
 
 @Component({
   selector: 'app-timer',
@@ -8,13 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent implements OnInit {
-  minutes: number = 45;
+  minutes: number = 25;
   seconds: number = 0;
   interval: any;
   savedTime: { minutes: number, seconds: number } | null = null;
   menuActive: boolean = false;
+  isPause: boolean = false;
   currentAudio: HTMLAudioElement | null = null;
-  constructor(private renderer: Renderer2, private http: HttpClient, private router: Router) { 
+  constructor(private renderer: Renderer2, private http: HttpClient, private router: Router, private revisionService: RevisionService) {
 
   }
 
@@ -29,8 +31,38 @@ export class TimerComponent implements OnInit {
           clearInterval(this.interval);
           // Le chronomètre a atteint 00:00, vous pouvez mettre ici le code à exécuter à ce moment-là
           this.showNotification();
-          this.minutes = 5;
-          this.seconds = 0;
+          this.isPause= true;
+          setTimeout(() => {
+            this.minutes = 5;
+            this.seconds = 0;
+            this.startTimer1(); // Démarrer le deuxième chronomètre après 3 secondes
+          }, 3000);
+        } else {
+          this.minutes--;
+          this.seconds = 59;
+        }
+      } else {
+        this.seconds--;
+        // Appel de la méthode pour vérifier la réponse du serveur
+        if(this.isPause == false ){this.onClickModeRevision();}
+      }
+
+    }, 1000);
+  }
+
+  startTimer1() {
+    this.interval = setInterval(() => {
+      if (this.seconds === 0) {
+        if (this.minutes === 0) {
+          clearInterval(this.interval);
+          // Le chronomètre a atteint 00:00, vous pouvez mettre ici le code à exécuter à ce moment-là
+          this.showShortBreakNotification();
+          this.isPause= false;
+          setTimeout(() => {
+            this.minutes = 25;
+            this.seconds = 0;
+            this.startTimer(); // Démarrer le deuxième chronomètre après 3 secondes
+          }, 3000);
         } else {
           this.minutes--;
           this.seconds = 59;
@@ -38,9 +70,6 @@ export class TimerComponent implements OnInit {
       } else {
         this.seconds--;
       }
-
-      // Appel de la méthode pour vérifier la réponse du serveur
-      this.onClickModeRevision();
     }, 1000);
   }
 
@@ -49,7 +78,7 @@ export class TimerComponent implements OnInit {
       .subscribe(
         (response: string) => {
           console.log('Response:', response); // Afficher la réponse dans la console
-          if (response === 'non') {
+          if (response === 'non' && this.isPause == false) {
             clearInterval(this.interval); // Mettre en pause le chronomètre si la réponse est "non"
             // Sauvegarder le temps restant
             this.savedTime = { minutes: this.minutes, seconds: this.seconds };
@@ -68,11 +97,33 @@ export class TimerComponent implements OnInit {
       );
   }
 
+  showShortBreakNotification() {
+    // Envoyer une notification pour reprendre le travail
+    if (Notification.permission === "granted") {
+      new Notification("Reprendre le travail !", {
+        body: "Les 5 minutes de pause sont écoulées. Reprenez votre travail !",
+      });
+    } else if (Notification.permission !== "denied") {
+      Notification.requestPermission().then(permission => {
+        if (permission === "granted") {
+          this.showShortBreakNotification();
+        }
+      });
+    }
+  }
 
-  redirectToHome() {
-    this.router.navigate(['']).then(() => {
-      window.location.reload();
-    });  }
+
+  // redirectToHome() {
+  //   this.router.navigate(['']).then(() => {
+  //     window.location.reload();
+  //   });
+  // }
+
+  exitRevisionMode() {
+    this.revisionService.deactivateRevisionMode();
+    window.close();
+  }
+  
 
   showNotification() {
     if (Notification.permission === "granted") {
@@ -104,34 +155,34 @@ export class TimerComponent implements OnInit {
       this.currentAudio.pause(); // Mettre en pause l'audio actuel
       this.currentAudio.currentTime = 0; // Remettre le curseur au début de l'audio
     }
-  
+
     // Créer une nouvelle instance audio pour le nouvel audio sélectionné
     const audio = new Audio(audioPath);
     audio.load();
     audio.play();
-  
+
     // Affecter l'instance audio actuelle à la nouvelle instance
     this.currentAudio = audio;
   }
 
   toggleMenu() {
     const menuItems = document.querySelectorAll(".menu a"); // Sélectionner les éléments du menu
-  
+
     if (!this.menuActive) {
-        menuItems[0].setAttribute("style", "transform: translate(50px,-50px)");
-        menuItems[1].setAttribute("style", "transform: translate(0px,-70px)");
-        menuItems[2].setAttribute("style", "transform: translate(-50px,-50px)");
-        menuItems[3].setAttribute("style", "transform: translate(-70px,0)");
-        menuItems[4].setAttribute("style", "transform: translate(70px,0)");
-        this.menuActive = true;
-        this.renderer.addClass(document.getElementById("toggle-btn"), "active"); // Ajouter la classe active au bouton de bascule
+      menuItems[0].setAttribute("style", "transform: translate(50px,-50px)");
+      menuItems[1].setAttribute("style", "transform: translate(0px,-70px)");
+      menuItems[2].setAttribute("style", "transform: translate(-50px,-50px)");
+      menuItems[3].setAttribute("style", "transform: translate(-70px,0)");
+      menuItems[4].setAttribute("style", "transform: translate(70px,0)");
+      this.menuActive = true;
+      this.renderer.addClass(document.getElementById("toggle-btn"), "active"); // Ajouter la classe active au bouton de bascule
     } else {
-        menuItems.forEach((menuItem: any) => {
-            menuItem.removeAttribute("style"); // Supprimer le style en attribut
-        });
-        this.menuActive = false;
-        this.renderer.removeClass(document.getElementById("toggle-btn"), "active"); // Supprimer la classe active du bouton de bascule
+      menuItems.forEach((menuItem: any) => {
+        menuItem.removeAttribute("style"); // Supprimer le style en attribut
+      });
+      this.menuActive = false;
+      this.renderer.removeClass(document.getElementById("toggle-btn"), "active"); // Supprimer la classe active du bouton de bascule
     }
   }
-  
+
 }

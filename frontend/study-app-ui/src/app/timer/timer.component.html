@@ -12,15 +12,15 @@
         <progress id="js-progress" value="0"></progress>
         <div class="progress-bar"></div>
         <div class="timer">
-
             <div class="clock" id="js-clock">
                 <span id="js-minutes">{{ minutes }}</span>
                 <span class="separator">:</span>
                 <span id="js-seconds">{{ seconds < 10 ? '0' + seconds : seconds }}</span>
             </div>
+            <h1 *ngIf="isPause">Break time</h1>
         </div>
         <button class="main-button bottom-right" (click)="changeTheme()">change the theme</button>
-        <button class="main-button bottom-left" (click)="redirectToHome()" >exit revision mode</button>
+        <button class="main-button bottom-left" (click)="exitRevisionMode()" >exit revision mode</button>
 
         <div class="menu">
             <a (click)="playAudio('assets/audio/rain.mp3')">

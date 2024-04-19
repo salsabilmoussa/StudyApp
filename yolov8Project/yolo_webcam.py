@@ -34,7 +34,6 @@ def perform_detection():
                 break
 
     cap.release()  # Libérer la capture de la webcam
-
     if has_person:
         return 'oui'
     else:

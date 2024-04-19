@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { RevisionService } from '../revision.service';
 
 @Component({
   selector: 'app-header',
@@ -8,15 +9,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isRevisionModeActivated: boolean = false;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private revisionService: RevisionService) { 
+  }
+
+  get isRevisionModeActivated(): boolean {
+    return this.revisionService.isRevisionModeActivated;
+  }
 
 
-  redirectToTimerPage() {
-    this.isRevisionModeActivated = true; 
-    if (this.isRevisionModeActivated) {
-      this.router.navigateByUrl('/timer');
+  openTimerPage() {
+    this.revisionService.activateRevisionMode(); 
+    if (this.revisionService.isRevisionModeActivated) {
+      window.open('/timer', '_blank');
     }
   }
 
