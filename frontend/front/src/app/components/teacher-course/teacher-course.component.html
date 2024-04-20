@@ -1,0 +1,26 @@
+
+
+<h1 class="hh1">Courses</h1>
+<div class="courseList">
+  
+<ul *ngIf="courses.length > 0">
+  <button class="add-new-course-button" (click)="addNewCourse()">+</button>
+  <li *ngFor="let course of courses">
+    <div class="hovered-li" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+      <div  (click)="navigateToDetails(course.id)">
+    {{ course.title }} 
+    </div>
+    <div class="delete-button-container" >
+      <button class="delete-button" (click)="deleteCourse(course)">
+    
+      </button>
+    </div>
+  </div>
+  </li>
+ 
+</ul>
+<p *ngIf="courses.length === 0">No courses found.</p>
+</div>
+
+
+

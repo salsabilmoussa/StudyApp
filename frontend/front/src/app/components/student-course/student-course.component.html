@@ -1,0 +1,17 @@
+<div class="courseList">
+    <h2>All Courses</h2>
+    <ul *ngIf="courses.length > 0">
+      
+      <li *ngFor="let course of courses">
+        <div class="course" (click)="navigateToDetails(course.id)">
+        <h3>{{ course.title }}</h3>
+        <p>{{ course.description }}</p>
+       </div>
+      </li>
+          
+          
+        
+    </ul>
+    <p *ngIf="courses.length === 0">No courses available.</p>
+  </div>
+  

@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.gray-cadre {
+  background-color: rgb(236, 241, 244);
+  padding: 20px;
+  display: flex;
+  border: none;
+  box-shadow: 10px 15px 20px rgba(172, 170, 170, 0.3);;
+  border-radius: 20px;
+  width: 70%;
+  height: 60%;
+}
+.image {
+   padding-right: 10px;
+    width: 40%; 
+    height: 100%; 
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+  
+}
+
+.subject-form {
+  width: 60%;
+  padding: 20px;
+}
+.preview-container {
+  width: 100px; /* Adjust width as needed */
+  height: 100px; /* Adjust height as needed */
+  border: none; /* Optional border */
+  padding: 5px; /* Optional padding */
+  display: flex; /* Center image vertically and horizontally */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* This will clip any content that overflows the container */
+}
+
+.preview-image {
+  max-width: 100%;   /* Ensures image doesn't grow beyond container */
+  max-height: 100%;  /* Ensures image doesn't grow beyond container */
+}
+.but{
+  display: flex;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: rgb(138, 179, 233);
+  border-color: rgb(157, 178, 236);
+  float: right; /* move submit button to bottom right corner */
+border: 10px;
+border-radius: 10px;
+margin-top: 40px;
+margin-right: 30px;
+margin-left: 300px;
+width: 80px;
+height: 30px;
+}
+.form-control{
+  
+  border-radius: 8px;
+  border: 0.3px solid rgb(207, 224, 244);
+  width: 95%;  
+}
+input{
+  height: 30px;
+  margin: 10px;
+}
+textarea{
+  height: 50px;
+  margin: 10px;
+}
+label{
+  margin: 20px;
+}

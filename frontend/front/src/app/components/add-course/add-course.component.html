@@ -1,0 +1,21 @@
+<h1>New Course</h1>
+<form (ngSubmit)="submitCourse()">
+  
+         
+  
+  <input type="text" [(ngModel)]="course.title" name="courseTitle" placeholder="Course Title">
+  <textarea [(ngModel)]="course.description"  name="courseDesc" placeholder="Course Description"></textarea>
+  <div>
+    <h1>course</h1>
+  <input type="file"   (change)="onFileChange($event)" name="cours" multiple  />
+</div>
+<div>
+  <h1>TD</h1>
+<input type="file"   (change)="onFileChange1($event)" name="td" multiple  />
+</div>
+<div>
+  <h1>TP</h1>
+<input type="file"   (change)="onFileChange2($event)" name="tp" multiple  />
+</div>
+  <button type="submit">Upload Course</button>
+</form>

@@ -1,0 +1,54 @@
+.course-list {
+    margin: 20px;
+  }
+  
+  .course-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .course-list li {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  .course-list h3 {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .courseList h2{
+    justify-content: center;
+    text-align: center;
+  }
+  .course{
+    justify-content: center;
+    text-align: center;
+  }
+  .course-list button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .courseList ul {
+    background-color: #f0f6fc; /* Change color as needed */
+    border: 2px solid #9fbcfb; /* Change border color as needed */
+    border-radius: 10px;
+    padding: 40px;
+    margin: 50px;
+    width: 80%; 
+    position: relative;
+    list-style-type: none; 
+  }
+  .courseList li {
+    background-color: #c8e1fa; /* Change color as needed */
+    border: 2px solid #9fbcfb; /* Change border color as needed */
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    width: 90%;
+    position: relative;
+  }
+  
