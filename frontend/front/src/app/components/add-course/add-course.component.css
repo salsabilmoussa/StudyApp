@@ -1,46 +1,79 @@
-/* Optional styling for the form elements (customize as needed) */
-
-  form {
-    font-family: Arial, sans-serif;
-    max-width: 500px;
+.container {
+    max-width: 800px; 
+   
     margin: 0 auto;
     padding: 20px;
+  }
+  
+  .form-wrapper {
+    background-color: #eff0f8;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
 
-h1 {
-    color: #91c1f4; /* Blue heading */
-    margin-top: 0;
-}
-
-input[type="text"],
-textarea {
-    width: 100%;
-    padding: 10px;
+    width: 700px; /* Adjust width as needed */
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+    
+  input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  textarea{
+    margin-top: 10px;
+  }
+  label{
     margin-top: 10px;
     margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+  .form-control {
+    width: 100%;
+    padding: 10px 12px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
     box-sizing: border-box;
-}
-
-input[type="file"] {
-    margin-top: 10px;
-}
-
-button[type="submit"] {
-    background-color: #70b4fc; /* Blue button */
-    color: #fff; /* White text */
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
+  }
+  
+  .form-control:focus {
+    border-color: #80bdff;
+    outline: none;
+  }
+  .form-wrapper h1{
+    padding-left: 250px;
+    color: #0969ca;
+  }
+ 
+  
+  .file-upload-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+  }
+  
+  .file-upload {
+    margin-right: 15px;
+    flex: 1 1 auto; /* Grow flex items to fill space */
+  }
+  
+  .btn-primary {
+    background-color: #318def;
+    color: #fff;
+    border-color: #007bff;
+    padding: 8px 16px;
+    border-radius: 10px;
     cursor: pointer;
-    margin-left: 350px;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
+    transition: all 0.2s ease-in-out;
+    margin-left: 500px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0067cc;
+    border-color: #0067cc;
+  }
+  
+  

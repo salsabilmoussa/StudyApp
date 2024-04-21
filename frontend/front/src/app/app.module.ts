@@ -11,6 +11,8 @@ import { AddCourseComponent } from './components/add-course/add-course.component
 import { CouseDetailsTeacherComponent } from './components/couse-details-teacher/couse-details-teacher.component';
 import { CourseDetailsStudentComponent } from './components/course-details-student/course-details-student.component';
 import { AddSubjectComponent } from './components/add-subject/add-subject.component';
+import { StudentSubjectsComponent } from './components/student-subjects/student-subjects.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import { AddSubjectComponent } from './components/add-subject/add-subject.compon
     AddCourseComponent,
     CouseDetailsTeacherComponent,
     CourseDetailsStudentComponent,
-    AddSubjectComponent
+    AddSubjectComponent,
+    StudentSubjectsComponent
   ],
   imports: [
     BrowserModule,
+    NgxExtendedPdfViewerModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule

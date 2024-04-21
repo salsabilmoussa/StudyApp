@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Course } from '../../models/course'; 
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CourseServiceService } from '../../services/course-service.service';
 
 @Component({
@@ -10,15 +10,20 @@ import { CourseServiceService } from '../../services/course-service.service';
 })
 export class TeacherCourseComponent {
   courses: Course[] = [];
-  constructor(private courseService: CourseServiceService, private router: Router) { }
+  constructor(private courseService: CourseServiceService, private router: Router,private route:ActivatedRoute) { }
   hovered:boolean=false;
+  
   ngOnInit() {
-   this.courseService.getAll()
-      .subscribe(courses => {
-        this.courses = courses;
-        console.log(courses);
+    this.route.queryParams.subscribe(params => {
+      const subjectId = params['subjectId'];
+  
+      // Fetch only the courses with the specified subjectId
+      this.courseService.getAll().subscribe(courses => {
+        // Filter the courses based on the subjectId
+        this.courses = courses.filter(course => course.subject === subjectId);
+        console.log(this.courses);
       });
-      
+    });
   }
   onMouseEnter() {
     this.hovered = !this.hovered; 

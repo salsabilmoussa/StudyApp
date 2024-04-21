@@ -6,6 +6,7 @@ import { StudentCourseComponent } from './components/student-course/student-cour
 import { CouseDetailsTeacherComponent } from './components/couse-details-teacher/couse-details-teacher.component';
 import { CourseDetailsStudentComponent } from './components/course-details-student/course-details-student.component';
 import { AddSubjectComponent } from './components/add-subject/add-subject.component';
+import { StudentSubjectsComponent } from './components/student-subjects/student-subjects.component';
 
 const routes: Routes = [
   { path: 'teacher', component: TeacherCourseComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'courseDetailsStudent/:id', component: CourseDetailsStudentComponent},
   { path: 'courseDetailsTeacher/:id', component: CouseDetailsTeacherComponent},
   { path: 'add-course', component: AddCourseComponent},
-  { path: 'add-subject', component: AddSubjectComponent}
+  { path: 'add-subject', component: AddSubjectComponent},
+  { path: 'subjects', component: StudentSubjectsComponent},
 ];
 
 @NgModule({

@@ -2,7 +2,9 @@ import { Component ,OnInit} from '@angular/core';
 import { Course } from '../../models/course'; 
 import { CourseServiceService } from '../../services/course-service.service';
 import { HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http'; 
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserServiceService } from '../../services/user-service.service';
+
 @Component({
   selector: 'app-student-course',
   templateUrl: './student-course.component.html',
@@ -10,19 +12,26 @@ import { Router } from '@angular/router';
 })
 export class StudentCourseComponent {
   courses: Course[] = [];
-
-  constructor(private courseService: CourseServiceService, private router: Router) { }
+  showfavorite: boolean = false;
+  constructor(private courseService: CourseServiceService, private router: Router, private route:ActivatedRoute,private userService:UserServiceService) { }
 
   ngOnInit() {
-    this.courseService.getAll()
-      .subscribe(courses => {
-        this.courses = courses;
+   
+      this.route.queryParams.subscribe(params => {
+        const subjectId = params['subjectId'];
+    
+        // Fetch only the courses with the specified subjectId
+        this.courseService.getAll().subscribe(courses => {
+          // Filter the courses based on the subjectId
+          this.courses = courses.filter(course => course.subject === subjectId);
+          console.log(this.courses);
+        });
       });
   }
   navigateToDetails(id:string){
     this.router.navigate(['/courseDetailsStudent', id]);
   }
-  onDoownload(id :string ,name:string){
+  onDownload(id :string ,name:string){
     this.courseService.getFile(id,name).subscribe( (event: HttpEvent<Blob>) => {
       if (event.type === HttpEventType.Response) {
         const blob = new Blob([event.body!], { type: 'application/octet-stream' });
@@ -42,27 +51,11 @@ export class StudentCourseComponent {
   );
     console.log(name);
   }
-
-  /*addToFavorites(course: Course) {
-    // Scenario 1: Add to favorites on backend
-
-    this.courseService.addToFavorites(course.id) // Replace with actual method name
-      .subscribe(response => {
-        if (response.success) {
-          console.log('Course added to favorites');
-          // Update UI to reflect the change (optional)
-        } else {
-          console.error('Failed to add course to favorites');
-        }
-      });
-
-    // Scenario 2: Store favorites in local storage (simple approach)
-
-    const currentFavorites = localStorage.getItem('favorites') || '[]';
-    const favorites = JSON.parse(currentFavorites) as number[];
-    favorites.push(course.id);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-    console.log('Course added to favorites (local storage)');
-  }*/
+  addFavorite(id:string , name:string){
+    this.showfavorite = !this.showfavorite;
+        this.userService.addFavorite(id,name).subscribe(() => {
+          
+          });
+  }
 
 }
