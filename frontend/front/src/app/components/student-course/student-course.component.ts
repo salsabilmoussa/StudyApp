@@ -56,7 +56,7 @@ export class StudentCourseComponent {
     },
     (error: HttpErrorResponse) => {
       console.log(error);
-    }
+    }    
   );
     console.log(name);
   }
