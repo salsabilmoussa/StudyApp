@@ -3,7 +3,7 @@
 
   <div class="subject-courses">
     <div class="subject-title">
-      <button>
+      <button (click)="goBack()">
       <i class="fa-solid fa-arrow-left"></i>
     </button>
        My Subject Courses
@@ -24,7 +24,7 @@
             
             <span>{{ file }}</span>
             <div class="file-buttons">
-              <button class="btn btn-primary btn-sm"><i class="fa-solid fa-book-open"></i></button>
+              <button class="btn btn-primary btn-sm" (click)="openPdf(file)"><i class="fa-solid fa-book-open"></i></button>
               <button class="btn btn-secondary btn-sm" (click)="onDownload(course.id,file)"><i class="fa-solid fa-download"></i></button>
               <button class="btn btn-light btn-sm" (click)="addFavorite(course.id,file)"><i *ngIf="!showfavorite" class="fa-regular fa-heart"></i>
                 <i *ngIf="showfavorite" class="fa-solid fa-heart"></i>
@@ -53,10 +53,13 @@
             </div>
           </div>
         </div></div>
-        <div *ngIf="showSuccessAlert" class="success-alert">
-          Added to favorites successfully!
-        </div>
+       
   </div>
     </div>
   </div>
-  
+  <div *ngIf="showSuccessAlert" class="success-alert">
+    Added to favorites !
+  </div>
+ <div *ngIf="showAlert" class="success-alert">
+    Detete it from favorites !
+  </div>

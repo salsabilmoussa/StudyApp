@@ -12,30 +12,18 @@ import { UserServiceService } from 'src/app/services/user-service.service';
   styleUrls: ['./course-details-student.component.css']
 })
 export class CourseDetailsStudentComponent {
-  course :Course= new Course();
-  courseId: string|null="";
-  cours: string[]=[];
-  td: string[]=[];
-  tp: string[]=[];
-  favorites:string[]=[];
-  user:User=new User(); 
-  showSuccessAlert: boolean = false;
+  pdfurl:string='';
   constructor(private route: ActivatedRoute,private courseService: CourseServiceService ,private userService:UserServiceService) { }
 
   ngOnInit(): void {
-    // Retrieve the course ID from the route parameters
-    this.courseId = this.route.snapshot.paramMap.get('id');
-    this.courseService.get(this.courseId)
-      .subscribe(course => {
-        this.course=course;
-        this.cours=course.cours!;
-        this.td=course.td!;
-        this.tp=course.tp!;
-        console.log(course);
-      });
-    console.log('Course ID:', this.courseId);
-    
-    // You can perform further operations using this.courseId
+    this.route.params.subscribe(params => {
+      const fileName = params['fileName']; // Assuming 'fileName' is the parameter name
+      // Construct the pdfurl using the file name
+      this.pdfurl = `../../../assets/${fileName}`; 
+      console.log(this.pdfurl);
+      // Replace '/path/to/pdf/files/' with your actual file path
+    });
+  
   }
   onDownload(id :string ,name:string){
     this.courseService.getFile(id,name).subscribe( (event: HttpEvent<Blob>) => {
@@ -58,11 +46,7 @@ export class CourseDetailsStudentComponent {
     console.log(name);
   }
   addFavorite(id:string , name:string){
-        this.userService.addFavorite(id,name).subscribe(() => {
-          this.showSuccessAlert = true;
-          setTimeout(() => {
-              this.showSuccessAlert = false;
-          }, 1000); // Hide alert after 3 seconds
-      });
+        
   }
+
 }

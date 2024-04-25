@@ -4,7 +4,7 @@ import { CourseServiceService } from '../../services/course-service.service';
 import { HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http'; 
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserServiceService } from '../../services/user-service.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-student-course',
   templateUrl: './student-course.component.html',
@@ -13,7 +13,9 @@ import { UserServiceService } from '../../services/user-service.service';
 export class StudentCourseComponent {
   courses: Course[] = [];
   showfavorite: boolean = false;
-  constructor(private courseService: CourseServiceService, private router: Router, private route:ActivatedRoute,private userService:UserServiceService) { }
+  showSuccessAlert:boolean =false ;
+  showAlert:boolean =false
+  constructor(private courseService: CourseServiceService, private router: Router, private route:ActivatedRoute,private userService:UserServiceService,private location: Location) { }
 
   ngOnInit() {
    
@@ -30,6 +32,13 @@ export class StudentCourseComponent {
   }
   navigateToDetails(id:string){
     this.router.navigate(['/courseDetailsStudent', id]);
+  }
+  openPdf(fileName: string): void {
+    // Navigate to the PdfViewerComponent and pass the file name as a parameter
+    this.router.navigate(['/courseDetailsStudent',  fileName ]);
+  }
+  goBack(){
+    this.location.back();
   }
   onDownload(id :string ,name:string){
     this.courseService.getFile(id,name).subscribe( (event: HttpEvent<Blob>) => {
@@ -54,8 +63,13 @@ export class StudentCourseComponent {
   addFavorite(id:string , name:string){
     this.showfavorite = !this.showfavorite;
         this.userService.addFavorite(id,name).subscribe(() => {
+          if(this.showSuccessAlert == false){
+            this.showSuccessAlert = true;
+          setTimeout(() => {
+            this.showSuccessAlert = false;
+          }, 1000); }// Hide the alert after 2 seconds
           
-          });
+        });
   }
 
 }

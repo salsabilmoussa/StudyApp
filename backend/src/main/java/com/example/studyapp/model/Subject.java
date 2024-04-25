@@ -13,18 +13,18 @@ public class Subject {
     private String description;
     private String professor;
     private String image; 
-    private String specialty;
+    private String speciality;
 
-    // Constructors
-    public Subject() {
-    }
+  
+    
+    public Subject() {}
 
-    public Subject(String title, String description, String professor, String image, String specialty) {
+    public Subject(String title, String description, String professor, String image, String speciality) {
         this.title = title;
         this.description = description;
         this.professor = professor;
         this.image = image;
-        this.specialty = specialty;
+        this.speciality = speciality;
     }
 
     // Getters and setters
@@ -68,12 +68,12 @@ public class Subject {
         this.image = image;
     }
 
-    public String getSpecialty() {
-        return specialty;
+    public String getSpeciality() {
+        return speciality;
     }
 
-    public void setSpecialty(String specialty) {
-        this.specialty = specialty;
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
     // toString method
@@ -85,7 +85,7 @@ public class Subject {
                 ", description='" + description + '\'' +
                 ", professor='" + professor + '\'' +
                 ", image='" + image + '\'' +
-                ", specialty='" + specialty + '\'' +
+                ", speciality='" + speciality + '\'' +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { HttpClientModule } from '@angular/common/http'; 
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,12 +15,16 @@ import { AddSubjectComponent } from './components/add-subject/add-subject.compon
 import { StudentSubjectsComponent } from './components/student-subjects/student-subjects.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     TeacherCourseComponent,
     StudentCourseComponent,
     AddCourseComponent,
+    
     CouseDetailsTeacherComponent,
     CourseDetailsStudentComponent,
     AddSubjectComponent,
@@ -30,7 +35,8 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     NgxExtendedPdfViewerModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+     
   ],
   providers: [],
   bootstrap: [AppComponent]

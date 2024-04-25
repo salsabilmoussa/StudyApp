@@ -11,7 +11,7 @@ import { StudentSubjectsComponent } from './components/student-subjects/student-
 const routes: Routes = [
   { path: 'teacher', component: TeacherCourseComponent},
   { path: 'student', component: StudentCourseComponent},
-  { path: 'courseDetailsStudent/:id', component: CourseDetailsStudentComponent},
+  { path: 'courseDetailsStudent/:fileName', component: CourseDetailsStudentComponent},
   { path: 'courseDetailsTeacher/:id', component: CouseDetailsTeacherComponent},
   { path: 'add-course', component: AddCourseComponent},
   { path: 'add-subject', component: AddSubjectComponent},

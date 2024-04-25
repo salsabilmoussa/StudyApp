@@ -34,7 +34,7 @@ public class SubjectService {
             subject.setDescription(subjectDetails.getDescription());
             subject.setProfessor(subjectDetails.getProfessor());
             subject.setImage(subjectDetails.getImage());
-            subject.setSpecialty(subjectDetails.getSpecialty());
+            subject.setSpeciality(subjectDetails.getSpeciality());
             return subjectRepository.save(subject);
         }
         return null;
