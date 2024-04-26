@@ -1,5 +1,5 @@
 <div class="posts-container">
-  <div *ngFor="let post of posts" class="post">
+  <div *ngFor="let post of posts.reverse()" class="post">
     <div class="post-card">
       <div class="user-info">
         <img src="assets/images/user.jpg" alt="User Image" class="user-image">
@@ -9,8 +9,7 @@
             <mat-icon>more_horiz</mat-icon>
           </button>
           <ul class="list" [ngClass]="{'hidden': post.isMenuHidden}">
-            <li>Save</li>
-            <li>Delete</li>
+            <li (click)="deletePost(post.id)">Delete</li>
             <li>Edit</li>
           </ul>
         </div>

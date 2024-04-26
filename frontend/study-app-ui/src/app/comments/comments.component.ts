@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
-import { CommentsService } from '../comments.service';
+import { CommentsService } from '../service/comments.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Comment } from './comment';
 
@@ -14,12 +14,12 @@ import { Comment } from './comment';
 })
 export class CommentsComponent implements OnInit {
 
-  postId: string='';
+  postId: string = '';
   commentsForm: FormGroup
-  comments: Comment[]= [];
+  comments: Comment[] = [];
 
   constructor(private dialogRef: MatDialogRef<CommentsComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private commentService: CommentsService, private matSnackBar: MatSnackBar) { 
+    @Inject(MAT_DIALOG_DATA) public data: any, private commentService: CommentsService, private matSnackBar: MatSnackBar) {
     this.postId = this.data.postId;
     this.commentsForm = new FormGroup({
       comment: new FormControl(''),
@@ -36,14 +36,14 @@ export class CommentsComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  postComment(){
-    const comment= this.commentsForm.get('comment')?.value;
-    const commentDto ={
+  postComment() {
+    const comment = this.commentsForm.get('comment')?.value;
+    const commentDto = {
       "commentText": comment,
       "authorId": "authorId"
     }
-    
-    this.commentService.postComment(commentDto, this.postId).subscribe( ()=> {
+
+    this.commentService.postComment(commentDto, this.postId).subscribe(() => {
       this.matSnackBar.open("Comment Posted Successfully", "OK");
 
       this.commentsForm.get('comment')?.reset();
@@ -51,10 +51,10 @@ export class CommentsComponent implements OnInit {
     })
   }
 
-  getComments(){
+  getComments() {
     this.commentService.getAllComments(this.postId).subscribe(data => {
-      this.comments= data;
-    }); 
+      this.comments = data;
+    });
   }
 
 

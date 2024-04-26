@@ -1,0 +1,26 @@
+<div *ngIf="isPopupOpen" class="login-box">
+    <img (click)="closePopup()" src="../../../assets/imgs/icons8-x-96.png" alt="" style=" cursor: pointer; margin-left: 300px; height: 30px; width: 30px;">
+    <h2 style="font-family: Calibri, sans-serif;">Add Group</h2>
+    <form (submit)="submitForm()" [formGroup]="form">
+        <div class="user-box">
+        <input type="text" id="name" formControlName="name" name="" required="">
+        <label style="font-family: Calibri, sans-serif;">Group name</label>
+      </div>
+  
+      <!-- Utilisez input de type file pour sélectionner une image -->
+      <div class="user-box">
+        <div class="attachment">
+          <input class="attachment" type="file" (change)="onFileSelected($event)" accept="image/*">
+          <span>Choose file</span>
+        </div>
+      </div>
+  
+      <a style="margin-left: 70%;" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <button class="custom-button" type="submit">SUBMIT</button>
+      </a>
+    </form>
+  </div>

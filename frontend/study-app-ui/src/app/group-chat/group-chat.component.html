@@ -1,1 +1,26 @@
-<h3>Groupes</h3>
+<div class="sidebar shadow-sm backgroundClass">
+    <div style="display: flex;">
+        <h4 style="margin-left: 10px;margin-top: 10px; color: black;">Groups</h4>
+        <div style="margin-left: auto; margin-right: 20px; margin-top: 10px;" class="addGroup" (click)="openPopup()">
+            <i style="color: black; height: 40px;" class="fas fa-plus"></i>
+        </div>
+    </div>
+    <ul class="conversation-list">
+        <li *ngFor="let group of groups" (click)="selectGroup(group)" routerLink = "/conversation/{{group.id}}"
+            [ngStyle]="{ 'background-color': group === selectedGroup ? '#e8e8e8' : 'transparent' }">
+            <div class="conversation-item">
+                <img [src]="group.pic" alt="Group Image" class="profile-image">
+                <div class="conversation-info">
+                    <h6 style="margin-bottom: -1px; color: black;">{{ group.name }}</h6>
+                    <p style="color: black; font-size: 11px;filter: brightness(80%);">{{ group.lastMessage }}</p>
+                </div>
+            </div>
+            <div style="background-color: white; filter: brightness(50%); width: 90%; height: 0.5px; margin-left: 5%;"></div>
+        </li>
+    </ul>
+      
+    <!-- Condition pour afficher le popup -->
+    <div *ngIf="isPopupOpen">
+      <app-add-group></app-add-group> <!-- Affichez ici le composant AddGroupComponent -->
+    </div>
+</div>

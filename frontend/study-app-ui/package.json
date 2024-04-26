@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "bootstrap": "^5.3.2",
     "ngx-file-drop": "^16.0.0",
     "ngx-lightbox": "^3.0.0",
     "ngx-toastr": "^18.0.0",

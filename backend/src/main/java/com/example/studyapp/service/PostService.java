@@ -2,6 +2,7 @@ package com.example.studyapp.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
@@ -26,6 +27,8 @@ public class PostService {
     public PostService(PostRepository postRepository) {
         this.postRepository = postRepository;
     }
+
+
     public List<Post> getAllPosts() {
         return postRepository.findAll();
     }
@@ -72,6 +75,16 @@ public class PostService {
 
     }
 
+
+    @Transactional
+    public void deletePost(String postId) {
+        // Vérifiez si le post existe
+        Post post = postRepository.findById(postId)
+                                  .orElseThrow(() -> new RuntimeException("Le post avec l'ID " + postId + " n'existe pas"));
+        
+        // Supprimez le post
+        postRepository.delete(post);
+    }
     // Map the postDto fields to post
     public PostDto editPost(PostDto postDto) {
         Post savedPost = getPostById(postDto.getId()); 
@@ -107,4 +120,6 @@ public class PostService {
         commentDto.setCommentText(comment.getText());
         return commentDto;
     }
+
+
 }

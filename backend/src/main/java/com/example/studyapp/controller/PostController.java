@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,6 +56,12 @@ public class PostController {
     @ResponseStatus(HttpStatus.OK)
     public void addComment(@PathVariable String postId, @RequestBody CommentDto commentDto){
         postService.addComment(postId, commentDto);
+    }
+
+    @DeleteMapping("/{postId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletePost(@PathVariable String postId) {
+        postService.deletePost(postId);
     }
 
     @GetMapping("/{postId}/comment")

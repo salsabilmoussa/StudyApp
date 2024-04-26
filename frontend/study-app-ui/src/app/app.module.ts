@@ -21,6 +21,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LightboxModule } from 'ngx-lightbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TimerComponent } from './timer/timer.component';
+import { AddGroupComponent } from './add-group/add-group.component';
+import { ConversationComponent } from './conversation/conversation.component';
+import { EditGroupComponent } from './edit-group/edit-group.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { TimerComponent } from './timer/timer.component';
     UploadPostComponent,
     PostsComponent,
     CommentsComponent,
-    TimerComponent
+    TimerComponent,
+    AddGroupComponent,
+    ConversationComponent,
+    EditGroupComponent
   ],
   imports: [
     BrowserModule,

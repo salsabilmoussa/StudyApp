@@ -1,7 +1,7 @@
 import { Component, Renderer2, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { RevisionService } from '../revision.service';
+import { RevisionService } from '../service/revision.service';
 
 @Component({
   selector: 'app-timer',
@@ -9,7 +9,7 @@ import { RevisionService } from '../revision.service';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent implements OnInit {
-  minutes: number = 25;
+  minutes: number = 1;
   seconds: number = 0;
   interval: any;
   savedTime: { minutes: number, seconds: number } | null = null;
@@ -32,9 +32,9 @@ export class TimerComponent implements OnInit {
           clearInterval(this.interval);
           // Le chronomètre a atteint 00:00, vous pouvez mettre ici le code à exécuter à ce moment-là
           this.showNotification();
-          this.isPause= true;
+          this.isPause = true;
           setTimeout(() => {
-            this.minutes = 5;
+            this.minutes = 1;
             this.seconds = 0;
             this.startTimer1(); // Démarrer le deuxième chronomètre après 3 secondes
           }, 3000);
@@ -45,7 +45,7 @@ export class TimerComponent implements OnInit {
       } else {
         this.seconds--;
         // Appel de la méthode pour vérifier la réponse du serveur
-        if(this.isPause == false ){this.onClickModeRevision();}
+        if (this.isPause == false) { this.onClickModeRevision(); }
       }
 
     }, 1000);
@@ -58,9 +58,9 @@ export class TimerComponent implements OnInit {
           clearInterval(this.interval);
           // Le chronomètre a atteint 00:00, vous pouvez mettre ici le code à exécuter à ce moment-là
           this.showShortBreakNotification();
-          this.isPause= false;
+          this.isPause = false;
           setTimeout(() => {
-            this.minutes = 25;
+            this.minutes = 1;
             this.seconds = 0;
             this.startTimer(); // Démarrer le deuxième chronomètre après 3 secondes
           }, 3000);
@@ -121,12 +121,12 @@ export class TimerComponent implements OnInit {
   // }
 
   exitRevisionMode() {
-      // Fermer le deuxième onglet (/timer)
-      window.close();
-      // Recharger le premier onglet (/)
-      window.opener.location.reload();
+    // Fermer le deuxième onglet (/timer)
+    window.close();
+    // Recharger le premier onglet (/)
+    window.opener.location.reload();
   }
-  
+
 
   showNotification() {
     if (Notification.permission === "granted") {
