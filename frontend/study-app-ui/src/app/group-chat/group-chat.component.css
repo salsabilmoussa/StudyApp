@@ -1,22 +1,19 @@
-h3{
-margin-left: 30px;}
-
 .backgroundClass {
     margin-top: 20px;
     height: 100%;
     margin: 0;
-   
+    background-color: #ffffff;
 }
 
 
 
 .sidebar {
-    width: 400px; 
+    width: 25%; 
     height: 100vh; 
     position: fixed; 
     right: 0; 
-    font-family: "Times New Roman", Times, serif;
     border-radius : 1%;
+    font-size: 20px;
 }
 
 .conversation-item {
@@ -25,14 +22,15 @@ margin-left: 30px;}
     padding: 10px;
     cursor: pointer;
     border-radius: 10px; /* Ajouter des coins arrondis */
-    margin-bottom: 7px; /* Ajouter un espace entre les éléments */
+    margin-bottom: 4px; /* Ajouter un espace entre les éléments */
+    margin-top: 3px;
     transition: background-color 0.3s; /* Ajouter une transition pour une animation fluide */
 
 }
 
 .profile-image {
-    width: 35px;
-    height: 35px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%; /* Pour arrondir l'image de profil */
     margin-right: 10px;
 }
@@ -55,11 +53,14 @@ margin-left: 30px;}
 }
 
 .conversation-item:hover{
-    background-color: #e8e8e8; /* Changer la couleur de fond lors du survol */
+    background-color: #F0F2F5; /* Changer la couleur de fond lors du survol */
     
 }
 .conversation-item:active{
-    background-color: #e8e8e8; /* Changer la couleur de fond lors du survol */
+    background-color: #EBF5FF; /* Changer la couleur de fond lors du survol */
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-bottom: 4px;
     
 }
 
@@ -80,8 +81,6 @@ margin-left: 30px;}
     line-height: 50px; /* Centrez l'icône verticalement dans le bouton */
   }
 
-  .addGroup:hover::after{
-    content: "Add New Group";
+  .addGroup{
     cursor: pointer;
   }
-  

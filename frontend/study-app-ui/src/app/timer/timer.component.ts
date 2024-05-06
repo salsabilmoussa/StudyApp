@@ -9,7 +9,7 @@ import { RevisionService } from '../service/revision.service';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent implements OnInit {
-  minutes: number = 1;
+  minutes: number = 25;
   seconds: number = 0;
   interval: any;
   savedTime: { minutes: number, seconds: number } | null = null;
@@ -34,7 +34,7 @@ export class TimerComponent implements OnInit {
           this.showNotification();
           this.isPause = true;
           setTimeout(() => {
-            this.minutes = 1;
+            this.minutes = 5;
             this.seconds = 0;
             this.startTimer1(); // Démarrer le deuxième chronomètre après 3 secondes
           }, 3000);
@@ -60,7 +60,7 @@ export class TimerComponent implements OnInit {
           this.showShortBreakNotification();
           this.isPause = false;
           setTimeout(() => {
-            this.minutes = 1;
+            this.minutes = 25;
             this.seconds = 0;
             this.startTimer(); // Démarrer le deuxième chronomètre après 3 secondes
           }, 3000);

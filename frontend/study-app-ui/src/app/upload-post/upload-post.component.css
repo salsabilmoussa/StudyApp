@@ -12,3 +12,15 @@ textarea {
     margin-top: 30px;
     background-color: #f1f1f1
 }
+
+.user-image {
+
+    width: 70px;
+    /* Ajustez la taille de l'image de l'utilisateur selon vos besoins */
+    height: 70px;
+    /* Ajustez la taille de l'image de l'utilisateur selon vos besoins */
+    border-radius: 50%;
+    position: absolute; /* Positionnement absolu par rapport à son conteneur */
+    top: 120px; /* Ajustez la position verticale selon vos besoins */
+    left: 115px;
+  }

@@ -24,5 +24,12 @@
     margin-right: 100px;
 }
 
+.petite-ligne-bleue {
+    width: 45px; /* Ajustez la longueur de la ligne selon vos besoins */
+    height: 3px; /* Ajustez l'épaisseur de la ligne selon vos besoins */
+    background-color: #228BE6; /* Couleur bleue */
+}
+
+
 
 
