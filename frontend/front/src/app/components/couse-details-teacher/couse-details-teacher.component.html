@@ -1,0 +1,57 @@
+<h2>Course</h2>
+<div class="course-list">
+  <h1>Course</h1>
+  
+  <h2>{{ course.title }}</h2>
+  <p>{{ course.description }}</p>
+<h3>Cours</h3>
+<ul *ngIf="cours.length > 0">
+  <li *ngFor="let file of cours" class="hovered-li" (mouseenter)="onMouseEnter(file)" (mouseleave)="onMouseLeave()">
+    {{ file }}
+    <ng-container *ngIf="hovered">
+      <button (click)="deleteCours(file)">Delete</button>
+    </ng-container>
+  </li>
+  <br>
+</ul>
+<label for="cours">Add new files for Cours:</label>
+<input type="file" (change)="onFileChange($event, 'cours')" name="cours" multiple />
+<p *ngIf="cours.length === 0">No course found.</p>
+
+
+<h3>TD</h3>
+<ul *ngIf="td.length > 0">
+  <li *ngFor="let file of td" class="hovered-li" (mouseenter)="onMouseEnter(file)" (mouseleave)="onMouseLeave()">
+    {{ file }}
+    <ng-container *ngIf="hovered">
+      <button (click)="deleteTd(file)">Delete</button>
+    </ng-container>
+  </li>
+  <br>
+</ul>
+<label for="td">Add new files for td:</label>
+<input type="file" (change)="onFileChange($event, 'td')" name="td" multiple />
+<p *ngIf="td.length === 0">No td found.</p>
+
+
+<h3>TP</h3>
+<ul *ngIf="tp.length > 0">
+  <li *ngFor="let file of tp" class="hovered-li" (mouseenter)="onMouseEnter(file)" (mouseleave)="onMouseLeave()" >
+    {{ file }}
+    <ng-container *ngIf="hovered">
+      <button (click)="deleteTp(file)">Delete</button>
+    </ng-container>
+  </li>
+  <br>
+</ul>
+<label for="tp">Add new files for tp:</label>
+<input type="file" (change)="onFileChange($event, 'tp')" name="tp" multiple />
+<p *ngIf="tp.length === 0">No tp found.</p>
+
+<br>
+<br>
+<br>
+<ng-container *ngIf="save">
+  <button (click)="addNewFiles()">Save this</button>
+</ng-container>
+</div>

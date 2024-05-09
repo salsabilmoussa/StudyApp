@@ -1,0 +1,81 @@
+.hh1{
+  justify-content: center;
+  text-align: center;
+}
+
+.courseList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.delete-button-container {
+  margin-left: 10px;
+}
+
+/* Styling the delete button */
+.delete-button {
+  background-image: url('../../../assets/delete.png');
+  /* Optionally, you can specify additional properties */
+  background-size: cover; /* Cover the entire container */
+  background-position: center;
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+
+}
+
+.delete-button:hover {
+  transform: scale(1.2); 
+}
+.courseList ul {
+  background-color: #f0f6fc; /* Change color as needed */
+  border: 2px solid #9fbcfb; /* Change border color as needed */
+  border-radius: 10px;
+  padding: 40px;
+  margin: 50px;
+  width: 80%; 
+  position: relative;
+  list-style-type: none; 
+}
+.courseList li {
+  background-color: #c8e1fa; /* Change color as needed */
+  border: 2px solid #9fbcfb; /* Change border color as needed */
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  width: 90%;
+  position: relative;
+}
+
+
+.add-new-course-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #008CBA; /* Change button color as needed */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+
+
+.add-new-course-button:hover {
+  background-color: #86b5f2; /* Change hover color as needed */
+  transform: scale(1.2); 
+}

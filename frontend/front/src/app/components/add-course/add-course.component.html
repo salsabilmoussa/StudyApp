@@ -1,0 +1,39 @@
+
+<div class="container">
+  <div class="form-wrapper">
+  <h1>New Course</h1>
+
+  <form #courseForm="ngForm" (ngSubmit)="submitCourse()">
+    <div class="form-group">
+      <label for="courseTitle">Course Title :
+        
+      </label>
+    
+      <input type="text" class="form-control" id="courseTitle" [(ngModel)]="course.title" name="courseTitle" required>
+      
+    </div>
+    <div class="form-group">
+      <label for="courseDesc">Course Description</label>
+      <textarea class="form-control" id="courseDesc" [(ngModel)]="course.description" name="courseDesc" required rows="5"></textarea>
+      
+    </div>
+
+    <div class="file-upload-group">
+      <div class="file-upload">
+        <label for="courseFiles">Course Files</label>
+        <input type="file" class="form-control" id="courseFiles" (change)="onFileChange($event)" name="courseFiles" multiple accept=".pdf,.docx,.pptx,.zip" />
+      </div>
+      <div class="file-upload">
+        <label for="tdFiles">TD Files</label>
+        <input type="file" class="form-control" id="tdFiles" (change)="onFileChange1($event)" name="tdFiles" multiple accept=".pdf,.docx,.pptx,.zip" />
+      </div>
+      <div class="file-upload">
+        <label for="tpFiles">TP Files</label>
+        <input type="file" class="form-control" id="tpFiles" (change)="onFileChange2($event)" name="tpFiles" multiple accept=".pdf,.docx,.pptx,.zip" />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" >Upload Course</button>
+  </form>
+</div>
+</div>
