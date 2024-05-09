@@ -1,0 +1,393 @@
+.backgroundClass {
+    margin-top: 20px;
+    height: 100%;
+    margin: 0;
+    background: white;
+
+}
+
+
+.chat-online {
+    color: #34ce57
+}
+
+.chat-offline {
+    color: #e4606d
+}
+
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    max-height: 800px;
+    overflow-y: scroll
+}
+
+.chat-message-left,
+.chat-message-right {
+    flex-shrink: 0;
+    max-width: 500px;
+}
+
+.chat-message-left {
+    margin-right: auto
+}
+
+.chat-message-right {
+    flex-direction: row-reverse;
+    margin-left: auto;
+    
+}
+.py-3 {
+    padding-top: 1rem!important;
+    padding-bottom: 1rem!important;
+}
+.px-4 {
+    padding-right: 1.5rem!important;
+    padding-left: 1.5rem!important;
+}
+.flex-grow-0 {
+    flex-grow: 0!important;
+}
+.border-top {
+    border-top: 1px solid #dee2e6!important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 75%;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .scrollable-container {
+    overflow-y: auto;
+    max-height: calc(100vh - 150px); /* Ajustez la hauteur moins la taille de la zone d'entrée du message */
+  }
+  
+  .message-input {
+    padding: 10px;
+    background-color: #f8f9fa; /* Couleur de fond */
+    border-top: 1px solid #dee2e6; /* Bordure supérieure */
+  }
+  .scrollable-container {
+    max-height: 400px; /* ajustez la hauteur selon vos besoins */
+    overflow-y: auto;
+  }
+  .message-list {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+    
+  .conversation-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px; /* Ajouter des coins arrondis */
+    margin-bottom: 7px; /* Ajouter un espace entre les éléments */
+    transition: background-color 0.3s; /* Ajouter une transition pour une animation fluide */
+
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Pour arrondir l'image de profil */
+    margin-right: 10px;
+}
+
+
+
+
+.card-header{
+    border-radius: 15px 15px 0 0 !important;
+    border-bottom: 0 !important;
+}
+.msg_head{
+    position: relative;
+    align-items: center;
+}
+
+.img_cont{
+    position: relative;
+    height: 70px;
+    width: 70px;
+}
+
+.user_img{
+    height: 70px;
+    width: 70px;
+    border:1.5px solid #f5f6fa;
+
+}
+
+.online_icon{
+    position: absolute;
+    height: 15px;
+    width:15px;
+    background-color: #4cd137;
+    border-radius: 50%;
+    bottom: 0.2em;
+    right: 0.4em;
+    border:1.5px solid white;
+}
+
+.user_info{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 15px;
+}
+.user_info span{
+    font-size: 20px;
+    color: white;
+}
+.user_info p{
+font-size: 10px;
+color: rgba(255,255,255,0.6);
+}
+
+.video_cam{
+    margin-left: auto;
+    margin-top: 5px;
+}
+.video_cam span{
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+#action_menu_btn{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+.action_menu{
+    position: absolute;
+    padding: 15px 0;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 15px;
+    top: 30px;
+    right: 15px;
+}
+.action_menu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.action_menu ul li{
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+}
+.action_menu ul li i{
+    padding-right: 10px;
+
+}
+.action_menu ul li:hover{
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.msg_cotainer{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 25%;
+    border-radius: 25px;
+    background-color: #82ccdd;
+    padding: 10px;
+    width: 50%;
+}
+.msg_cotainer_send{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+    border-radius: 25px;
+    background-color: #78e08f;
+    padding: 10px;
+    position: relative;
+}
+.msg_time{
+    position: absolute;
+    right: 5px;
+    bottom: -15px;
+    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+}
+.msg_time_send{
+    position: absolute;
+    right:0;
+    bottom: -15px;
+    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+}
+
+.img_cont{
+    position: relative;
+    height: 70px;
+    width: 70px;
+}
+.img_cont_msg{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+.user_img_msg{
+    height: 40px;
+    width: 40px;
+    border:1.5px solid #f5f6fa;
+    margin-left: 70%;
+
+}
+.card-footer{
+    border-radius: 0 0 15px 15px !important;
+    border-top: 0 !important;
+
+}
+.attach_btn{
+	border-radius: 15px 0 0 15px !important;
+	background-color: rgba(0,0,0,0.3) !important;
+	border:0 !important;
+	color: white !important;
+	cursor: pointer;
+    height: 61px !important;
+    align-items: center;
+
+}
+
+.send_btn{
+	border-radius: 0 15px 15px 0 !important;
+	background-color: rgba(0,0,0,0.3) !important;
+	border:0 !important;
+	color: white !important;
+	cursor: pointer;
+    height: 62px !important;
+}
+ .input-group {
+    display: flex;
+    align-items: center;
+  }
+
+.type_msg{
+	background-color: rgba(0,0,0,0.3) !important;
+	border:0 !important;
+	color:white !important;
+	height: 60px !important;
+	overflow-y: auto;
+    flex: 1;
+}
+
+  
+.type_msg:focus{
+	box-shadow:none !important;
+    outline:0px !important;
+}
+
+
+
+
+
+/* drop down menu */
+
+/* Style the dropdown button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1;}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+  
+
+
+  .bottom-center{
+    position: fixed;
+    bottom: 10px;
+    right: 100px;
+    background-color: white;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  #toggle-btn,
+  .menu a {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+  }
+  
+  .menu a {
+    background-color: #ffffff;
+    height: 40px;
+    width: 40px;
+    font-size: 22px;
+    text-decoration: none;
+    bottom: 10px;
+    right: 100px;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  
+  .active {
+    transform: rotate(45deg);
+  }  
+
+  .app-group-chat {
+    margin-top: 65px;
+    background-color: #ffffff; 
+    width: 400px; 
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+  }

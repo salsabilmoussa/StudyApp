@@ -1,0 +1,86 @@
+.backgroundClass {
+    margin-top: 20px;
+    height: 100%;
+    margin: 0;
+    background-color: #ffffff;
+}
+
+
+
+.sidebar {
+    width: 25%; 
+    height: 100vh; 
+    position: fixed; 
+    right: 0; 
+    border-radius : 1%;
+    font-size: 20px;
+}
+
+.conversation-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px; /* Ajouter des coins arrondis */
+    margin-bottom: 4px; /* Ajouter un espace entre les éléments */
+    margin-top: 3px;
+    transition: background-color 0.3s; /* Ajouter une transition pour une animation fluide */
+
+}
+
+.profile-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Pour arrondir l'image de profil */
+    margin-right: 10px;
+}
+.conversation-list {
+    list-style-type: none; /* Pour supprimer le point de la liste */
+    padding: 0; /* Supprimer le remplissage de la liste */
+}
+
+
+.conversation-info {
+    flex: 1;
+}
+.conversation-info h5,
+.conversation-info p {
+    margin: 0; /* Réduire la marge autour du nom du groupe et du message */
+}
+
+.conversation-info p {
+    font-size: 14px; /* Modifier la taille de la police du paragraphe */
+}
+
+.conversation-item:hover{
+    background-color: #F0F2F5; /* Changer la couleur de fond lors du survol */
+    
+}
+.conversation-item:active{
+    background-color: #EBF5FF; /* Changer la couleur de fond lors du survol */
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    
+}
+
+
+.circle-button {
+    width: 50px; /* Définissez la taille du bouton */
+    height: 50px; /* Définissez la taille du bouton */
+    border-radius: 50%; /* Rendez le bouton rond */
+    background-color: #55CCCC; /* Couleur de fond du bouton */
+    color: #ffffff; /* Couleur de texte du bouton */
+    border: none; /* Supprimez la bordure du bouton */
+    cursor: pointer; /* Rendre le curseur en forme de main lorsqu'il survole le bouton */
+    margin-left: 60%;
+  }
+  
+  .circle-button i {
+    font-size: 24px; /* Définissez la taille de l'icône */
+    line-height: 50px; /* Centrez l'icône verticalement dans le bouton */
+  }
+
+  .addGroup{
+    cursor: pointer;
+  }

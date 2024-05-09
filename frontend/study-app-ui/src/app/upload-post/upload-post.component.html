@@ -1,0 +1,15 @@
+<img src="assets/images/user.jpg" alt="User Image" class="user-image">
+<div class="center">
+    <textarea *ngIf="showTextField" [(ngModel)]="postText" placeholder="What's new, Salsabil ?"
+        (click)="showUploadComponent = true"></textarea>
+    <ngx-file-drop *ngIf="showUploadComponent" dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+        (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+            <span *ngIf="showDragAndDropText">Drag and drop (or)</span>
+            <button type="button" (click)="openFileSelector()">{{ uploadButtonText || 'Browse Files' }}</button>
+        </ng-template>
+    </ngx-file-drop>
+
+    <button mat-button *ngIf="showUploadComponent || fileUploaded" (click)="uploadPost()"
+        style="margin-left: 850px; margin-top: 10px;">Post</button>
+</div>

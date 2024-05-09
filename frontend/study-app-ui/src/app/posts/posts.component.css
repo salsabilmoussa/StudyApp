@@ -1,0 +1,259 @@
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.post {
+  width: 900px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.post-header {
+  /* Styles pour l'en-tête du post si nécessaire */
+}
+
+.post-content {
+  /* Styles pour le contenu du post */
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.post-footer button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post-footer button:nth-child(1) {
+  background-color: #3b5998;
+  /* Bleu Facebook */
+  color: #fff;
+}
+
+.post-footer button:nth-child(2) {
+  background-color: #ccc;
+  color: #000;
+}
+
+.post-footer button:hover {
+  opacity: 0.8;
+}
+
+.post-card {
+  width: 835px;
+  height: 481px;
+  background-color: #FFFFFF;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-image {
+  width: 100px;
+  /* Ajustez la taille de l'image de l'utilisateur selon vos besoins */
+  height: 100px;
+  /* Ajustez la taille de l'image de l'utilisateur selon vos besoins */
+  border-radius: 50%;
+  /* Pour obtenir une forme ronde */
+  margin-right: 15px;
+}
+
+.username {
+  font-size: 24px;
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.post {
+  width: auto;
+  /* Utilisation d'une largeur automatique pour s'adapter au contenu */
+  max-width: 900px;
+  /* Limite la largeur maximale du post */
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.post-card {
+  width: auto;
+  /* Utilisation d'une largeur automatique pour s'adapter au contenu */
+  max-width: 835px;
+  /* Limite la largeur maximale de la carte de post */
+  height: auto;
+  /* Utilisation d'une hauteur automatique pour s'adapter au contenu */
+  max-height: 100%;
+  /* Limite la hauteur maximale de la carte de post */
+  background-color: #FFFFFF;
+  margin: 20px auto;
+  padding: 20px;
+  overflow: hidden;
+  /* Empêche le débordement du contenu */
+}
+
+.post-content {
+  width: 689px;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+
+}
+
+.post-content img {
+  max-width: 100%;
+  /* Limite la largeur de l'image au conteneur parent */
+  height: auto;
+  /* Maintient le rapport hauteur/largeur */
+  display: block;
+  /* Assure que l'image ne déforme pas le flux du contenu */
+  margin-bottom: 10px;
+  /* Marge entre le document et les autres éléments */
+  margin-left: auto;
+  /* Définir la marge gauche automatique pour centrer l'image */
+  margin-right: auto;
+  /* Définir la marge droite automatique pour centrer l'image */
+}
+
+
+.document-link {
+  display: block; /* Affiche le lien de document en tant que bloc pour occuper toute la largeur */
+  margin-top: 10px; /* Ajoute de l'espace au-dessus du lien de document */
+  color: #007bff; /* Couleur du lien de document */
+  text-decoration: none; /* Supprime la décoration du texte */
+  font-weight: bold; /* Met en gras le texte du lien de document */
+}
+
+.document-link:hover {
+  text-decoration: underline; /* Souligne le lien de document au survol */
+}
+
+.post-buttons {
+  width: 100%;
+  /* Buttons occupy entire available width */
+  display: flex;
+  justify-content: space-between;
+  /* Distributes buttons evenly across the width */
+  align-items: center;
+  /* Center buttons vertically */
+}
+
+
+button {
+  width: 350px;
+  height: 75px;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  transition: .3s;
+}
+
+body {
+  background: linear-gradient(135deg, #F93239, #DD2476);
+  height: 100vh;
+  margin: 0;
+  font-family: Roboto;
+}
+
+.menu {
+  position: absolute;
+  left: 56%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.menu button {
+  height: 25px;
+  width: 10px;
+  margin-right: 50px;
+}
+
+
+ul {
+  background: inherit;
+  padding: .5em 0;
+  margin: 0;
+  margin-top: 1em;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: inherit;
+  font: 400 18px Roboto;
+  white-space: nowrap;
+  cursor: default;
+}
+
+ul.hidden {
+  margin-top: .7em;
+  visibility: hidden;
+  opacity: 0;
+}
+
+ul::before {
+  content: '';
+  width: .75em;
+  height: .75em;
+  background: inherit;
+  position: absolute;
+  top: -.375em;
+  left: calc(56px / 2 - .375em);
+  /* Utiliser une valeur fixe pour la largeur du bouton */
+  transform: rotate(45deg);
+}
+
+li {
+  list-style: none;
+  padding: .5em;
+  padding-left: 2.0em;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+li::before {
+  content: '';
+  position: absolute;
+  top: calc(50% - 0.375em); /* Centrer verticalement */
+  left: 8px;
+  font-family: 'Material Icons';
+  font-size: 1.5em; /* Taille de l'icône */
+}
+
+
+li:nth-child(1)::before {
+  content: '\E872'; /* Code Unicode de l'icône "delete" */
+}
+
+li:nth-child(2)::before {
+  content: '\E254'; /* Code Unicode de l'icône "edit" */
+}
+
+
+li:hover {
+  background: rgba(255, 255, 255, .08);
+}

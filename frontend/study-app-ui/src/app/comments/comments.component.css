@@ -1,0 +1,102 @@
+.modal-container {
+    position: fixed;
+    top: 50%; /* Position verticale centrée */
+    left: 50%; /* Position horizontale centrée */
+    transform: translate(-50%, -50%); /* Pour centrer le modal */
+    width: 600px; /* Réduction de la largeur */
+    max-width: 90%; /* Pour s'adapter à des écrans plus petits */
+    height: auto; /* Ajustement automatique de la hauteur */
+    max-height: 80%; /* Pour s'adapter à des écrans plus petits */
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto; /* Ajout de défilement vertical si nécessaire */
+}
+
+.modal-header {
+    width: 100%;
+    height: 50px;
+    padding: 10px; /* Ajout de marge intérieure */
+    box-sizing: border-box; /* Pour inclure la marge dans la largeur totale */
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+.dismissModal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer; /* Ajout d'un curseur pointer */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.modal-body {
+    padding: 10px;
+}
+
+.modal-footer {
+    display: flex; /* Utiliser la flexbox pour aligner les éléments */
+    align-items: center; /* Aligner verticalement les éléments sur le même axe */
+    width: 100%;
+    height: 90px;
+    padding: 10px; /* Ajout de marge intérieure */
+    box-sizing: border-box; /* Pour inclure la marge dans la largeur totale */
+    position: relative; /* Retirer la position absolue */
+}
+
+.modal-footer input[type="text"] {
+    flex: 1; /* Pour que le champ texte prenne autant d'espace que possible */
+    height: 50px;
+    background-color: #EEEEEE;
+    border-radius: 40px;
+    padding: 0 20px; /* Ajout de remplissage */
+    box-sizing: border-box; /* Pour inclure le remplissage dans la largeur totale */
+    margin-right: 10px; /* Ajout de marge à droite */
+}
+
+.modal-footer .sendButton {
+    width: 40px; /* Ajustement de la largeur */
+    height: 40px;
+    background: #007bff; /* Couleur de fond bleue */
+    color: #fff; /* Couleur du texte blanc */
+    border: none;
+    border-radius: 40px;
+    font-size: 24px;
+    cursor: pointer; /* Ajout d'un curseur pointer */
+}
+
+.user-image {
+    width: 50px; /* Réduction de la taille */
+    height: 50px; /* Réduction de la taille */
+    border-radius: 50%;
+    margin-right: 10px; /* Ajout de marge à droite */
+}
+
+.carte {
+    background-color: #f6f6f6;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.user-info {
+    display: flex; /* Utiliser la flexbox */
+    align-items: center; /* Aligner verticalement les éléments sur le même axe */
+}
+
+
+.user-info p {
+    margin: 0; /* Supprimer la marge par défaut */
+}
+
+.comment-text {
+    margin-top: 10px;
+    margin-right: 20px;
+
+}
+
+  

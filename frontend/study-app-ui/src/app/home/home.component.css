@@ -1,0 +1,24 @@
+
+.Home {
+  display: flex;
+  flex-direction: row-reverse;
+  overflow-y: auto;
+  min-height: 100vh;
+  }
+  
+  .Content {
+    flex: 1; /* Le contenu principal prend tout l'espace disponible */
+    background-color: #F5F5F5;
+  }
+  
+  .app-group-chat {
+    margin-top: 65px;
+    background-color: #ffffff; 
+    width: 400px; 
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+  }
+
+  
